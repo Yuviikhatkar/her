@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>I Love You ❤️</title>
+   <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to right, #fbc2eb, #a6c1ee);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      animation: fadeIn 1.5s ease;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .container {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 100%;
+      max-width: 400px;
+      animation: slideUp 1s ease forwards;
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    h2 {
+      color: #e91e63;
+      margin-bottom: 1rem;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    button {
+      background-color: #e91e63;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.3s;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    button:hover {
+      background-color: #d81b60;
+      transform: scale(1.05);
+    }
+
+    .message, .gallery {
+      display: none;
+      margin-top: 2rem;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 15px;
+      margin-top: 1rem;
+      transition: transform 0.5s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.03);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Hey Beautiful, What's Your Name? 💖</h2>
+    <input type="text" id="username" placeholder="Enter your name..." />
+    <button onclick="showMessage(event)">Continue</button>
+
+    <div class="message" id="message">
+      <h2>I'm Sorry </h2>
+      <p>Yrr I know ki mrse gltiya hui hai but iske ye mtlb ni hai ki mai kosis ni krta. Itni dur baitha baitha b mai hrr 
+        vo chiz krne ki try krta jisse apko khushi mile  </p>
+      <h2>I Love You ❤️</h2>
+      <p>Ap sb kuch ho yrr mere lia. Mai ab vo life imagine b ni kr skta jisme ap mere sath ni ho. Bs ek yhi sapna dekhta hu
+        jisme hum dono ki shadi ho rhi ho
+      </p>
+    </div>
+
+    <div class="gallery" id="gallery">
+        <img src="panda.jpg" alt="panda image">
+    </div>
+  </div>
+
+  <script>
+    function showMessage(event) {
+      const username = document.getElementById('username').value.trim();
+      if (username) {
+        document.querySelector('.message').style.display = 'block';
+        document.querySelector('.gallery').style.display = 'block';
+        document.querySelector('h2').textContent = `Hi Madam, I Have Something to Say 💌`;
+        document.getElementById('username').style.display = 'none';
+        event.target.style.display = 'none';
+      } else {
+        alert('Please enter your name 💕');
+      }
+    }
+  </script>
+</body>
+</html>
