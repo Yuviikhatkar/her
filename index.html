@@ -20,6 +20,7 @@
       min-height: 100vh;
       padding: 1rem;
       animation: fadeIn 1.5s ease;
+      overflow: hidden;
     }
 
     @keyframes fadeIn {
@@ -36,6 +37,8 @@
       width: 100%;
       max-width: 400px;
       animation: slideUp 1s ease forwards;
+      position: relative;
+      z-index: 2;
     }
 
     @keyframes slideUp {
@@ -109,9 +112,60 @@
         padding: 0.8rem;
       }
     }
+
+    .hearts {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      transform: rotate(45deg);
+      animation: float 6s infinite;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100vh) scale(1.5);
+        opacity: 0;
+      }
+    }
   </style>
 </head>
 <body>
+  <div class="hearts" id="hearts"></div>
   <div class="container">
     <h2>Hey Beautiful, What's Your Name? 💖</h2>
     <input type="text" id="username" placeholder="Enter your name..." />
@@ -127,9 +181,7 @@
     </div>
 
     <div class="gallery" id="gallery">
-      <img src="https://i.imgur.com/1iQOZux.jpg" alt="Love Image 1">
-      <img src="https://i.imgur.com/3XbYQ9P.jpg" alt="Love Image 2">
-      <img src="./3400_3_02.jpg" alt="Cute Panda">
+      <img src="panda.jpg" alt="panda image">
     </div>
   </div>
 
@@ -139,13 +191,28 @@
       if (username) {
         document.querySelector('.message').style.display = 'block';
         document.querySelector('.gallery').style.display = 'block';
-        document.querySelector('h2').textContent = `Helo Madam , I Have Something to Say 💌`;
+        document.querySelector('h2').textContent = `Heloo Madam, I Have Something to Say 💌`;
         document.getElementById('username').style.display = 'none';
         event.target.style.display = 'none';
       } else {
         alert('Please enter your name 💕');
       }
     }
+
+    function createHearts() {
+      const heartsContainer = document.getElementById('hearts');
+      for (let i = 0; i < 30; i++) {
+        const heart = document.createElement('div');
+        heart.classList.add('heart');
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.animationDuration = (Math.random() * 3 + 3) + 's';
+        heart.style.opacity = Math.random();
+        heart.style.transform = `scale(${Math.random() * 0.8 + 0.5}) rotate(45deg)`;
+        heartsContainer.appendChild(heart);
+      }
+    }
+
+    createHearts();
   </script>
 </body>
 </html>
