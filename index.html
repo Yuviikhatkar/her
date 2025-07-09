@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>I Love You ❤️</title>
-   <style>
+  <title> I Love You ❤️</title>
+  <style>
     * {
       box-sizing: border-box;
       margin: 0;
@@ -17,7 +17,8 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      min-height: 100vh;
+      padding: 1rem;
       animation: fadeIn 1.5s ease;
     }
 
@@ -60,6 +61,7 @@
       border: 1px solid #ddd;
       border-radius: 10px;
       animation: fadeIn 1s ease-in-out;
+      font-size: 1rem;
     }
 
     button {
@@ -71,6 +73,7 @@
       cursor: pointer;
       transition: background-color 0.3s, transform 0.3s;
       animation: fadeIn 1s ease-in-out;
+      font-size: 1rem;
     }
 
     button:hover {
@@ -94,6 +97,18 @@
     .gallery img:hover {
       transform: scale(1.03);
     }
+
+    @media screen and (max-width: 500px) {
+      .container {
+        padding: 1.5rem;
+        border-radius: 15px;
+      }
+
+      input[type="text"], button {
+        font-size: 0.95rem;
+        padding: 0.8rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -105,15 +120,16 @@
     <div class="message" id="message">
       <h2>I'm Sorry </h2>
       <p>Yrr I know ki mrse gltiya hui hai but iske ye mtlb ni hai ki mai kosis ni krta. Itni dur baitha baitha b mai hrr 
-        vo chiz krne ki try krta jisse apko khushi mile  </p>
+        vo chiz krne ki try krta jisse apko khushi mile </p>
       <h2>I Love You ❤️</h2>
       <p>Ap sb kuch ho yrr mere lia. Mai ab vo life imagine b ni kr skta jisme ap mere sath ni ho. Bs ek yhi sapna dekhta hu
-        jisme hum dono ki shadi ho rhi ho
-      </p>
+        jisme hum dono ki shadi ho rhi ho</p>
     </div>
 
     <div class="gallery" id="gallery">
-        <img src="panda.jpg" alt="panda image">
+      <img src="https://i.imgur.com/1iQOZux.jpg" alt="Love Image 1">
+      <img src="https://i.imgur.com/3XbYQ9P.jpg" alt="Love Image 2">
+      <img src="./3400_3_02.jpg" alt="Cute Panda">
     </div>
   </div>
 
@@ -123,7 +139,7 @@
       if (username) {
         document.querySelector('.message').style.display = 'block';
         document.querySelector('.gallery').style.display = 'block';
-        document.querySelector('h2').textContent = `Hi Madam, I Have Something to Say 💌`;
+        document.querySelector('h2').textContent = `Helo Madam , I Have Something to Say 💌`;
         document.getElementById('username').style.display = 'none';
         event.target.style.display = 'none';
       } else {
